@@ -21,38 +21,51 @@
         <div class="mb-3">
           <label for="exampleInputDocNum" class="form-label">Document Num</label>
           <input value="{{ $user-> doc_num }}"  type="text" class="form-control" name="doc_num">
+          @error('doc_num')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputDocNum" class="form-label">Name</label>
-            <input value="{{ $user-> name }}" type="text" class="form-control" name="name">
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleInputLastName" class="form-label">Last Name</label>
-            <input value="{{ $user-> last_name }}" type="text" class="form-control" name="last_name">
+          <label for="exampleInputDocNum" class="form-label">Name</label>
+          <input value="{{ $user-> name }}" type="text" class="form-control" name="name">
+          @error('name')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputPhone" class="form-label"> Phone</label>
-            <input value="{{ $user-> phone }}" type="number" class="form-control" name="phone">
+          <label for="exampleInputLastName" class="form-label">Last Name</label>
+          <input value="{{ $user-> last_name }}" type="text" class="form-control" name="last_name">
+          @error('last_name')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputUserName" class="form-label">User Name</label>
-            <input value="{{ $user-> user_name }}" type="text" class="form-control" name="user_name">
+          <label for="exampleInputPhone" class="form-label"> Phone</label>
+          <input value="{{ $user-> phone }}" type="number" class="form-control" name="phone">
+          @error('phone')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputEmail" class="form-label">Email</label>
-            <input value="{{ $user-> email}}" type="email" class="form-control" name="email">
+          <label for="exampleInputUserName" class="form-label">User Name</label>
+          <input value="{{ $user-> user_name }}" type="text" class="form-control" name="user_name">
+          @error('user_name')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-          <label for="exampleInputEmail" class="form-label">Role Id</label>
-          <input value="{{ $user-> role_id }}" type="number" class="form-control" name="role_id">
-      </div>
-
+          <label for="exampleInputEmail" class="form-label">Email</label>
+          <input value="{{ $user-> email}}" type="email" class="form-control" name="email">
+          @error('email')
+              <span>{{$message}}</span>
+          @enderror
+        </div>
+        
         <button type="submit" class="btn btn-primary" value="Update">Update</button>
       </form>
       @endsection

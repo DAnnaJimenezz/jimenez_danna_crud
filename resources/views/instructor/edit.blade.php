@@ -12,16 +12,25 @@
         <div class="mb-3">
           <label for="exampleInputDocNum" class="form-label">Profession</label>
           <input type="text" class="form-control" name="profession" value="{{ $instructor-> profession }}">
+          @error('profession')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
             <label for="exampleInputDocNum" class="form-label">Speciality</label>
             <input type="text" class="form-control" name="speciality" value="{{ $instructor-> speciality }}">
+            @error('speciality')
+                <span>{{$message}}</span>
+            @enderror
           </div>
 
           <div class="mb-3">
             <label for="exampleInputLastName" class="form-label">User Id</label>
             <input type="number" class="form-control" name="user_id" value="{{ $instructor-> user_id }}">
+            @error('user_id')
+                <span>{{$message}}</span>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary" value="Update">Update</button>

@@ -11,13 +11,19 @@
 
         <div class="mb-3">
           <label for="exampleInputRoleNum" class="form-label">User Id</label>
-          <input type="number" class="form-control" name="user_id" required>
+          <input type="number" class="form-control" name="user_id" value= "{{old('user_id')}}" required>
+          @error('user_id')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputDescription" class="form-label">Admission Date</label>
-            <input type="date" class="form-control" name="admission_date" required>
-          </div>
+          <label for="exampleInputDescription" class="form-label">Admission Date</label>
+          <input type="date" class="form-control" name="admission_date" value="{{old('admission_date')}}"required>
+          @error('admission_date')
+              <span>{{$message}}</span>
+          @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary">Create Recruiter</button>
       </form>

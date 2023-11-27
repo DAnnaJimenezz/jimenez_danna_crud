@@ -11,17 +11,26 @@
 
         <div class="mb-3">
           <label for="exampleInputDocNum" class="form-label">Profession</label>
-          <input type="text" class="form-control" name="profession" required>
+          <input type="text" class="form-control" name="profession" value="{{ old('profession')}}">
+          @error('profession')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
             <label for="exampleInputDocNum" class="form-label">Speciality</label>
-            <input type="text" class="form-control" name="speciality" required>
+            <input type="text" class="form-control" name="speciality" value="{{old('speciality')}}" required>
+            @error('speciality')
+                <span>{{$message}}</span>
+            @enderror
           </div>
 
           <div class="mb-3">
             <label for="exampleInputLastName" class="form-label">User Id</label>
-            <input type="number" class="form-control" name="user_id" required>
+            <input type="number" class="form-control" name="user_id" value = "{{old('user_id')}}" required>
+            @error('user_id')
+                <span>{{$message}}</span>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Cratea Instructor</button>

@@ -12,6 +12,9 @@
           <div class="mb-3">
             <label for="exampleUserid" class="form-label">User Id</label>
             <input type="number" class="form-control" name="user_id" value="{{ $candidate-> user_id }}">
+            @error('user_id')
+                <span>{{$message}}</span>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -26,6 +29,9 @@
         <div class="mb-3">
           <label for="exampleUserid" class="form-label">Points</label>
           <input type="number" class="form-control" name="points" value="{{ $candidate-> points }}">
+          @error('points')
+              <span>{{$message}}</span>
+          @enderror
       </div>
 
         <button type="submit" class="btn btn-primary"  value="Update">Update</button>

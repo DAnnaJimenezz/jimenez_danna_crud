@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -15,10 +17,12 @@ class UserController extends Controller
     }
     
     public function Create(){
-        return view('auth.register');
+
+        $roles = Role::all();
+        return view('/user/create',['roles'=> $roles]);
     }
 
-    public function Store(Request $request){
+    public function Store(UserRequest $request){
 
         $user = new User();
         $user->role_id = $request->input('role_id');
@@ -39,13 +43,11 @@ class UserController extends Controller
 
     }
 
-    
     public function Edit (User $user){
         return view('user.edit', compact('user'));
     }
 
-
-    public function Update(Request $request, User $user){
+    public function Update(UserRequest $request, User $user){
         
         $user->update($request->all()); 
         return redirect()->route('user');
@@ -55,7 +57,7 @@ class UserController extends Controller
         return view ('user.show', compact('user'));
     }
 
-    public function Destroy (Request $request, User $user){ 
+    public function Destroy (UserRequest $request, User $user){ 
         $user->delete();
         return redirect()->route('user');
     }

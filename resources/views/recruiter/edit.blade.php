@@ -12,12 +12,18 @@
         <div class="mb-3">
           <label for="exampleInputRoleNum" class="form-label">User Id</label>
           <input type="number" class="form-control" name="user_id" value="{{ $recruiter-> user_id }}">
+          @error('user_id')
+              <span>{{$message}}</span>
+          @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputDescription" class="form-label">Admission Date</label>
-            <input type="date" class="form-control" name="admission_date" value="{{ $recruiter-> admission_date }}">
-          </div>
+          <label for="exampleInputDescription" class="form-label">Admission Date</label>
+          <input type="date" class="form-control" name="admission_date" value="{{ $recruiter-> admission_date }}">
+          @error('admission_date')
+            <span>{{$message}}</span>
+          @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary" value="Update">Update</button>
       </form>
