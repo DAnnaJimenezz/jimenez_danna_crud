@@ -35,7 +35,7 @@
 
         <div class="mb-3">
           <label for="exampleInputLastName" class="form-label">Last Name</label>
-          <input type="text" class="form-control" name="last_name" value="last_name" required>
+          <input type="text" class="form-control" name="last_name" value="{{old('last_name')}}" required>
           @error('last_name')
               <span>{{$message}}</span>
           @enderror
@@ -75,7 +75,7 @@
 
         <div class="mb-3">
           <label for="exampleInputEmail" class="form-label">Role Id</label>
-          <select name="role_id" id="">
+          <select class="form-select" name="role_id" id="">
             @foreach ($roles as $rol)
               <option value="{{$rol->id}}">{{$rol->role_name}}</option>    
             @endforeach

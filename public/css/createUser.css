@@ -1,6 +1,3 @@
-/* Add this CSS code to style your Create User form */
-
-/* Container styling */
 .create-user {
     width: 50%;
     margin: 0 auto;
@@ -11,15 +8,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Form title styling */
 .titleUser {
     text-align: center;
     color: #333;
 }
 
-/* Form input and select styling */
 form {
-    margin-top: 20px;
+    margin-top: 30px;
+    padding: 20px;
 }
 
 form label {
@@ -31,18 +27,19 @@ form label {
 form select,
 form input[type="text"],
 form input[type="number"],
-form input[type="email"] {
+form input[type="email"],
+form input[type="password"]{
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-/* Button styling */
 form button {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
+    margin-top: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -52,7 +49,6 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* Back link styling */
 a {
     display: block;
     margin-top: 20px;
