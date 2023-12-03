@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Recruiter;
 use App\Http\Requests\RecruiterRequest;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -22,10 +23,10 @@ class RecruiterController extends Controller
 
     public function Store(RecruiterRequest $request): RedirectResponse{
 
-        $recruiter = new Recruiter();
-        $recruiter->user_id = $request->input('user_id');
-        $recruiter->admission_date = $request->input('admission_date');
-        $recruiter->save(); 
+        Recruiter::create([
+        'user_id'=>User::latest('id')->first()->id,
+        'admission_date'=>$request->admission_date
+        ]);
 
         return redirect()->route('recruiter');
     }

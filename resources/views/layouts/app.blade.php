@@ -74,6 +74,7 @@
                     <a href="{{ route('auth.create') }}">Crear Usuario</a>
                     <a href="{{ route('instructor.create') }}">Crear Instructor</a>
                     <a href="{{ route('candidate.create') }}">Crear Candidate</a>
+                    <a href="{{ route('recruiter.create') }}">Crear Recruiter</a>
                     <a href="{{ route('login') }}">Iniciar sesión</a>
                 </menu>  
             </nav>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use App\Models\Recruiter;
 use App\Models\Role;
 
 class UserController extends Controller
@@ -37,6 +38,16 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('user');
+
+        // Recuperar el ID del usuario recién creado
+        $userId = $user->id;
+
+        // Lógica para la inserción en la tabla 'recruiters'
+        $recruiter = new Recruiter();
+        $recruiter->user_id = $userId;
+        $recruiter->admission_date = $request->input('admission_date');
+        $recruiter->save();
+
 
         auth()->attempt($request->only('email', 'password'));
         return redirect()->back()->with('mensaje',  'Usuario creado correctamente...');
