@@ -1,4 +1,4 @@
-@extends('layouts.app') --}}
+@extends('layouts.app')
 @section('content')
 
 <a href="{{ route ('user') }}"> Back</a>
@@ -6,7 +6,7 @@
 
 <section class="create-user" style="width: 30%; margin-left: 35%">
     <h1 class="titleUser">Create Your User</h1>
-    <form action="{{ route('user.update', $user->id) }}" method="POST">
+    <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST">
         @method('PUT')
         @csrf
         <div class="mb-3">
@@ -66,7 +66,7 @@
           @enderror
         </div>
         
-        <button type="submit" class="btn btn-primary" value="Update">Update</button>
+        <button type="submit" class="btn btn-primary" value="Update" >Update</button>
       </form>
       @endsection
 </section>

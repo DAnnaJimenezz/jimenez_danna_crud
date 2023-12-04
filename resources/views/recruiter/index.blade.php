@@ -21,7 +21,7 @@
         </table>
         <a href="{{ route('recruiter.show', $recruiter->id) }}">{{ $recruiter->id }}</a> |
         <a href="{{ route('recruiter.edit', $recruiter->id) }}">EDIT</a> |
-        <form method="POST" action="{{ route('recruiter.destroy', $recruiter->id) }}"> 
+        <form method="POST" action="{{ route('recruiter.destroy', ['recruiter'=>$recruiter->id]) }}"> 
             @csrf
             @method('DELETE')
             <input type="submit" value='DELETE'>

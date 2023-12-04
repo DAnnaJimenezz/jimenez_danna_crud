@@ -20,7 +20,7 @@ class RoleController extends Controller
         return view('role.create');
     }
 
-    public function Store(RoleRequest $request): RedirectResponse{
+    public function Store(Request $request): RedirectResponse{
         
         Role::create($request->all());
         return redirect()->route('role');
@@ -31,7 +31,7 @@ class RoleController extends Controller
     }
 
 
-    public function Update(RoleRequest $request, Role $role): RedirectResponse{
+    public function Update(Request $request, Role $role): RedirectResponse{
         
         $role->update($request->all()); 
         return redirect()->route('role');
@@ -41,7 +41,7 @@ class RoleController extends Controller
         return view ('role.show', compact('role'));
     }
 
-    public function Destroy (RoleRequest $request, Role $role): RedirectResponse{ 
+    public function Destroy (Request $request, Role $role): RedirectResponse{ 
         $role->delete();
         return redirect()->route('role');
     }

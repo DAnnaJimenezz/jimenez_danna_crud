@@ -36,7 +36,7 @@ class CandidateController extends Controller
     }
 
 
-    public function Update(CandidateRequest $request, Candidate $candidate): RedirectResponse{
+    public function Update(Request $request, Candidate $candidate): RedirectResponse{
         
         $candidate->update($request->all()); 
         return redirect()->route('candidate');
@@ -46,7 +46,7 @@ class CandidateController extends Controller
         return view ('candidate.show', compact('candidate'));
     }
 
-    public function Destroy (CandidateRequest $request, Candidate $candidate): RedirectResponse{ 
+    public function Destroy (Request $request, Candidate $candidate): RedirectResponse{ 
         $candidate->delete();
         return redirect()->route('candidate');
     }

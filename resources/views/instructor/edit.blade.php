@@ -1,4 +1,4 @@
-@extends('layouts.app') --}}
+@extends('layouts.app')
 @section('content')
 
 <a href="{{ route ('instructor') }}"> Back</a>
@@ -7,8 +7,8 @@
 <section class="create-instructor" style="width: 30%; margin-left: 35%">
     <h1 class="titleIntructor">Create Your Instructor</h1>
     <form action="{{ route('instructor.update', $instructor->id) }}" method="POST">
-        @csrf
-        @method('PUT')
+      @method('PUT')
+      @csrf
         <div class="mb-3">
           <label for="exampleInputDocNum" class="form-label">Profession</label>
           <input type="text" class="form-control" name="profession" value="{{ $instructor-> profession }}">

@@ -21,12 +21,12 @@ class RecruiterController extends Controller
         return view('recruiter.create');
     }
 
-    public function Store(RecruiterRequest $request): RedirectResponse{
+    public function Store(Request $request): RedirectResponse{
 
-        Recruiter::create([
-        'user_id'=>User::latest('id')->first()->id,
-        'admission_date'=>$request->admission_date
-        ]);
+        $recruiter = new Recruiter();
+        $recruiter->user_id = $request->input('user_id');
+        $recruiter->admission_date = $request->input('admission_date');
+        $recruiter->save();
 
         return redirect()->route('recruiter');
     }
@@ -36,7 +36,7 @@ class RecruiterController extends Controller
     }
 
 
-    public function Update(RecruiterRequest $request, Recruiter $recruiter): RedirectResponse{
+    public function Update(Request $request, Recruiter $recruiter): RedirectResponse{
         
         $recruiter->update($request->all()); 
         return redirect()->route('recruiter');
@@ -46,7 +46,7 @@ class RecruiterController extends Controller
         return view ('recruiter.show', compact('recruiter'));
     }
 
-    public function Destroy (RecruiterRequest $request, Recruiter $recruiter): RedirectResponse{ 
+    public function Destroy (Request $request, Recruiter $recruiter): RedirectResponse{ 
         $recruiter->delete();
         return redirect()->route('recruiter');
     }

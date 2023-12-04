@@ -34,8 +34,8 @@
             </tr>
         </table>
             <a href="{{ route('user.show', $user->id) }}">{{ $user->id }}</a> |
-            <a href="{{ route('user.edit', $user->id) }}">EDIT</a> |
-            <form method="POST" action="{{ route('user.destroy', $user->id) }}"> 
+            <a href="{{ route('user.edit', ['user' => $user->id]) }}">EDIT</a> |
+            <form method="POST" action="{{ route('user.destroy', ['user'=>$user->id]) }}"> 
                 @csrf
                 @method('DELETE')
                 <input type="submit" value='DELETE'>

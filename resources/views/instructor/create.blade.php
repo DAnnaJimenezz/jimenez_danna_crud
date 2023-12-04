@@ -8,7 +8,6 @@
     <h1 class="titleIntructor">Create Your Instructor</h1>
     <form action="{{ route('instructor.store') }}" method="POST">
         @csrf
-
         <div class="mb-3">
           <label for="exampleInputDocNum" class="form-label">Profession</label>
           <input type="text" class="form-control" name="profession" value="{{ old('profession')}}">

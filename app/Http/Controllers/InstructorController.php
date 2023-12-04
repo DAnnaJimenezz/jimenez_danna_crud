@@ -36,7 +36,7 @@ class InstructorController extends Controller
     }
 
 
-    public function Update(InstructorRequest $request, Instructor $instructor): RedirectResponse{
+    public function Update(Request $request, Instructor $instructor): RedirectResponse{
         
         $instructor->update($request->all()); 
         return redirect()->route('instructor');
@@ -46,7 +46,8 @@ class InstructorController extends Controller
         return view ('instructor.show', compact('instructor'));
     }
 
-    public function Destroy (InstructorRequest $request, Instructor $instructor): RedirectResponse{ 
+    public function Destroy (Request $request, Instructor $instructor): RedirectResponse{ 
+
         $instructor->delete();
         return redirect()->route('instructor');
     }

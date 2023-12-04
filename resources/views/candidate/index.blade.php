@@ -23,7 +23,7 @@
         </table>
         <a href="{{ route('candidate.show', $candidate->id) }}">{{ $candidate->id }}</a> |
         <a href="{{ route('candidate.edit', $candidate->id) }}">EDIT</a> |
-        <form method="POST" action="{{ route('candidate.destroy', $candidate->id) }}"> 
+        <form method="POST" action="{{ route('candidate.destroy', ['candidate'=>$candidate->id]) }}"> 
             @csrf
             @method('DELETE')
             <input type="submit" value='DELETE'>

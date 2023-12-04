@@ -39,16 +39,6 @@ class UserController extends Controller
 
         return redirect()->route('user');
 
-        // Recuperar el ID del usuario recién creado
-        $userId = $user->id;
-
-        // Lógica para la inserción en la tabla 'recruiters'
-        $recruiter = new Recruiter();
-        $recruiter->user_id = $userId;
-        $recruiter->admission_date = $request->input('admission_date');
-        $recruiter->save();
-
-
         auth()->attempt($request->only('email', 'password'));
         return redirect()->back()->with('mensaje',  'Usuario creado correctamente...');
 
@@ -58,7 +48,7 @@ class UserController extends Controller
         return view('user.edit', compact('user'));
     }
 
-    public function Update(UserRequest $request, User $user){
+    public function Update(Request $request, User $user){
         
         $user->update($request->all()); 
         return redirect()->route('user');
@@ -68,7 +58,7 @@ class UserController extends Controller
         return view ('user.show', compact('user'));
     }
 
-    public function Destroy (UserRequest $request, User $user){ 
+    public function Destroy (Request $request, User $user){ 
         $user->delete();
         return redirect()->route('user');
     }

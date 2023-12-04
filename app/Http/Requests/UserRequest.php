@@ -28,8 +28,8 @@ class UserRequest extends FormRequest
             'name'=> 'required|string|max:255',
             'last_name'=> 'required|string|max:255',
             'phone'=> 'required|string|max:50|min:10',
-            'user_name'=> 'required|string|max:50|unique:users,user_name',
-            'email'=> 'required|string|max:255|unique:users,email',
+            'user_name'=> 'required|string|max:50',
+            'email'=> 'required|string|max:255',
             'password'=> 'required|string|max:30|min:10',
         ];
     }
